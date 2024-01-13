@@ -1,7 +1,5 @@
 # IaC-Cloud-Resume
 
-This is a sample template for IaC-Cloud-Resume - Below is a brief explanation of what we have generated for you:
-
 ```bash
 .
 ├── Makefile                    <-- Make to automate build
