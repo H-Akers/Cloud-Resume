@@ -1,0 +1,186 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  IaC-Cloud-Resume
+
+  Sample SAM Template for IaC-Cloud-Resume
+Metadata:
+  Parameters:
+    ParentKmsKeyStack:
+      Description: 'Stack name of parent KMS key stack based on security/kms-key.yaml template (ignored when DBSnapshotIdentifier is set, value used from snapshot).'
+      Type: String
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 5
+    MemorySize: 128
+
+Resources:
+  
+  MyWebsite:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      WebsiteConfiguration:
+        IndexDocument: index.html
+      BucketName: cloudresumeiacsite
+  
+  MyRoute53:
+    Type: "AWS::Route53::RecordSetGroup"
+    Properties:
+      HostedZoneId: Z01932981X0AGAW5E3B81  #Can Remove Hardcode
+      RecordSets:
+        - Name: hakersdevelopment.com #Can Remove Hardcode
+          Type: A
+          AliasTarget:
+            HostedZoneId: Z2FDTNDATAQYW2
+            DNSName: !GetAtt MyCloudFrontDistro.DomainName
+
+  WebsiteCertificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: hakersdevelopment.com #Can Remove Hardcode
+      ValidationMethod: DNS
+
+  MyCloudFrontDistro:
+    Type: "AWS::CloudFront::Distribution"
+    Properties:
+      DistributionConfig:
+        ViewerCertificate:
+          AcmCertificateArn: !Ref WebsiteCertificate
+          SslSupportMethod: sni-only
+        Aliases:
+          - hakersdevelopment.com #Can Remove Hardcode
+        DefaultCacheBehavior:
+          ViewerProtocolPolicy: allow-all
+          TargetOriginId: cloudresumeiacsite.s3-website-us-east-1.amazonaws.com
+          DefaultTTL: 0
+          MinTTL: 0
+          MaxTTL: 0
+          ForwardedValues:
+            QueryString: false
+        Origins:
+          - DomainName: cloudresumeiacsite.s3-website-us-east-1.amazonaws.com
+            Id: cloudresumeiacsite.s3-website-us-east-1.amazonaws.com
+            CustomOriginConfig:
+              OriginProtocolPolicy: match-viewer
+        Enabled: "true"
+        DefaultRootObject: index.html
+
+  WebsiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      PolicyDocument:
+        Id: MyPolicy
+        Version: 2012-10-17
+        Statement:
+          - Sid: PublicReadForGetBucketObjects
+            Effect: Allow
+            Principal: "*"
+            Action: 
+              - "s3:GetObject"
+              - "s3:GetObjectVersion"
+            Resource: !Join
+              - ""
+              - - "arn:aws:s3:::"
+                - !Ref MyWebsite
+                - /*
+      Bucket: !Ref MyWebsite            
+
+  RestGateway:
+    Type: AWS::ApiGateway::RestApi
+    Properties:
+      Name: "cloud-resume-iac"
+
+  VisitCount:
+    Type: AWS::ApiGateway::Resource
+    Properties:
+      RestApiId: !Ref RestGateway
+      ParentId: !GetAtt [RestGateway, RootResourceId]
+      PathPart: "Visitors"
+  
+  RestMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      RestApiId: !Ref RestGateway
+      HttpMethod: ANY
+      ResourceId: !Ref VisitCount
+      AuthorizationType: NONE
+      Integration: 
+        IntegrationHttpMethod: GET
+        Type: AWS_PROXY
+        Uri: !Sub 
+          - arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${lambdaArn}/invocations
+          - lambdaArn: !GetAtt [HelloWorldFunction, arn:aws:lambda:us-east-1:431162638191:function:cloud-resume-iac-HelloWorldFunction-4JPqnywxQXf4]
+
+  DeploymentAPI:  
+    Type: AWS::ApiGateway::Deployment
+    Properties:
+      RestApiId: !Ref RestGateway
+      StageName: Prod
+    DependsOn: RestMethod
+
+  CORSConfiguration:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Prod
+      Cors: 'https://hakersdevelopment.com/'
+    DependsOn: DeploymentAPI
+
+  CloudFrontOriginPolicy:
+    Type: AWS::CloudFront::OriginRequestPolicy
+    Properties:
+      OriginRequestPolicyConfig:
+        CookiesConfig:
+          CookieBehavior: none
+        HeadersConfig: 
+          HeaderBehavior: none
+        Name: CloudResume
+        QueryStringsConfig:
+          QueryStringBehavior: none
+
+
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: hello-world/
+      Handler: hello-world
+      Runtime: python3.9
+      Architectures:
+      - x86_64
+      Events:
+        CatchAll:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /hello
+            Method: GET
+      Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
+        Variables:
+          PARAM1: VALUE
+
+  ApplicationResourceGroup:
+    Type: AWS::ResourceGroups::Group
+    Properties:
+      Name:
+        Fn::Sub: ApplicationInsights-SAM-${AWS::StackName}
+      ResourceQuery:
+        Type: CLOUDFORMATION_STACK_1_0
+  ApplicationInsightsMonitoring:
+    Type: AWS::ApplicationInsights::Application
+    Properties:
+      ResourceGroupName:
+        Ref: ApplicationResourceGroup
+      AutoConfigurationEnabled: 'true'
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  HelloWorldAPI:
+    Description: API Gateway endpoint URL for Prod environment for First Function
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
+  HelloWorldFunction:
+    Description: First Lambda Function ARN
+    Value: !GetAtt HelloWorldFunction.Arn
+  HelloWorldFunctionIamRole:
+    Description: Implicit IAM Role created for Hello World function
+    Value: !GetAtt HelloWorldFunctionRole.Arn
