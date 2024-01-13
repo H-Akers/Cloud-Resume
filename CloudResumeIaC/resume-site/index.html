@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" wtx-context="A719B1A5-246A-4332-A684-96344389C008"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Hayden Akers</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script>
+        fetch('https://7p0b98uxbc.execute-api.us-east-1.amazonaws.com/Prod/hello')
+            .then(response => response.json())
+            .then((data) => {
+                document.getElementById('replaceme').innertext = data.count
+            })
+    </script>
+
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Lato:400,700,900);
+
+        .Navbar ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0
+        }
+
+        html {
+            font-size: 62.5%;
+            box-sizing: border-box
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit
+        }
+
+        body {
+            margin: 0;
+            background-color: #fff
+        }
+
+        img {
+            max-width: 100%;
+            height: auto
+        }
+
+        .u-cf:before,
+        .u-cf:after {
+            content: " ";
+            display: table
+        }
+
+        .u-cf:after {
+            clear: both
+        }
+
+        .u-hug {
+            margin-top: 0 !important
+        }
+
+        .u-pullRight {
+            float: right
+        }
+
+        .u-keyline {
+            position: relative
+        }
+
+        .u-keyline:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            border-top: 1px solid #ddd
+        }
+
+        .u-link {
+            text-decoration: none;
+            position: relative;
+            display: inline-block
+        }
+
+        .u-link:before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            bottom: .2em;
+            width: 100%;
+            height: 2px;
+            background-color: #96ddcf
+        }
+
+        .u-link:visited:before {
+            background-color: #ddd
+        }
+
+        .u-link:hover:before {
+            background-color: #fa8072
+        }
+
+        .u-shadow {
+            text-shadow: 4px 4px 0 #6fd1bd;
+            transition: text-shadow .2s ease-in-out
+        }
+
+        a:hover .u-shadow {
+            text-shadow: -4px -4px 0 salmon
+        }
+
+        @media (max-width:767px) {
+            .u-hidden\@sm-down {
+                display: none !important
+            }
+        }
+
+        @media (max-width:543px) {
+            .u-hidden\@xs-down {
+                display: none !important
+            }
+        }
+
+        body {
+            color: #333;
+            font-size: 1.6rem;
+            font-family: Lato, Helvetica, Arial, sans-serif;
+            font-weight: normal;
+            line-height: 1.5;
+            letter-spacing: .008em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #111;
+            line-height: 1.2;
+            font-weight: 900
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        ul,
+        p {
+            margin-top: 1.6rem;
+            margin-bottom: 0
+        }
+
+        h3,
+        .h3 {
+            font-size: 2rem;
+            margin-top: 3.2rem
+        }
+
+        a {
+            color: #333
+        }
+
+        ul {
+            padding-left: 1.8rem
+        }
+
+        .Title {
+            font-size: 50px;
+            font-size: 8vw;
+            font-family: Lato, 'Open Sans', Helvetica, Arial;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-top: 0;
+            margin-bottom: 0;
+            text-transform: uppercase;
+            display: inline-block
+        }
+
+        @media (max-width:525px) {
+            .Title {
+                font-size: 42px
+            }
+        }
+
+        @media (min-width:937.5px) {
+            .Title {
+                font-size: 75px
+            }
+        }
+
+        .Title-sub {
+            font-size: .34em;
+            letter-spacing: .16em;
+            font-weight: 400;
+            text-transform: none;
+            display: block;
+            margin-top: 1.2rem;
+            padding-top: 1.6rem;
+            border-top: .45em solid
+        }
+
+        .l-Wrapper {
+            width: 80%;
+            max-width: 90rem;
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        @media (max-width:767px) {
+            .l-Wrapper--reset\@sm-down {
+                width: 100%
+            }
+        }
+
+        .l-Header {
+            margin-top: 6.4rem;
+            margin-bottom: 3.2rem
+        }
+
+        .l-Header-col {
+            margin-top: 3.2rem;
+            margin-bottom: 3.2rem
+        }
+
+        @media (min-width:544px) {
+            .l-Header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end
+            }
+
+            .l-Header-col:last-child:not(:first-child) {
+                text-align: right
+            }
+        }
+
+        .l-Section {
+            margin-top: 6.4rem
+        }
+
+        .l-Section+.l-Section {
+            position: relative;
+            border-top: 1px solid #ddd
+        }
+
+        .l-Section+.l-Section:before {
+            content: "";
+            font-size: 50px;
+            font-size: 8vw;
+            position: absolute;
+            top: -.1rem;
+            border-top: .153em solid;
+            width: 4rem
+        }
+
+        @media (max-width:525px) {
+            .l-Section+.l-Section:before {
+                font-size: 42px
+            }
+        }
+
+        @media (min-width:937.5px) {
+            .l-Section+.l-Section:before {
+                font-size: 75px
+            }
+        }
+
+        .l-Section-title,
+        .l-Section-content {
+            margin-top: 3.2rem
+        }
+
+        .l-Section-content>:first-child,
+        .l-Section-content>:first-child>h3 {
+            margin-top: 0
+        }
+
+        .l-Section-content>p:first-child,
+        .l-Section-content>ul:first-child {
+            margin-top: .3rem
+        }
+
+        .l-Section-group {
+            display: inline
+        }
+
+        @media (min-width:768px) {
+            .l-Section {
+                display: flex
+            }
+
+            .l-Section:before {
+                display: none
+            }
+
+            .l-Section-title {
+                flex: 0 0 24%
+            }
+        }
+
+        .l-Footer {
+            font-size: 1.4rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 12.8rem -.8rem 3.2rem;
+            padding-top: 3.2rem
+        }
+
+        .l-Footer a {
+            text-decoration: none;
+            display: inline-block
+        }
+
+        .l-Footer a:not(:last-child) {
+            margin-right: 1.6rem
+        }
+
+        .l-Footer a:hover {
+            color: #111
+        }
+
+        .l-Footer-col {
+            padding-left: .8rem;
+            padding-right: .8rem
+        }
+
+        .Navbar {
+            color: #fff;
+            font-size: 1rem;
+            font-weight: bold;
+            line-height: 4rem;
+            letter-spacing: .28rem;
+            text-transform: uppercase;
+            width: 100%;
+            background-color: #111
+        }
+
+        .Navbar a:not(.Navbar-toggle) {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .Navbar li {
+            display: inline-block
+        }
+
+        .Navbar a {
+            display: block;
+            padding: 0 .8rem
+        }
+
+        a.Navbar-btn {
+            padding-left: 2rem;
+            padding-right: 2rem;
+            background: #6fd1bd
+        }
+
+        a.Navbar-btn:hover {
+            background: #fa8072
+        }
+
+        @media (max-width:767px) {
+            .Navbar {
+                text-align: right
+            }
+
+            .Navbar ul:not(:first-child) {
+                display: inline-block;
+                padding-right: 1.6rem !important
+            }
+        }
+
+        .Tag {
+            color: #111;
+            text-shadow: 1px 1px 0 rgba(255, 255, 255, .4);
+            font-weight: 700;
+            line-height: 1;
+            position: relative;
+            display: inline-block;
+            padding-left: .8rem;
+            padding-right: .8rem
+        }
+
+        .Tag:before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1em;
+            bottom: 0;
+            margin: auto;
+            border-radius: .2rem;
+            background-color: rgba(111, 209, 189, .5);
+            transition: all .8s .4s ease-in-out
+        }
+
+        .Tag:hover:before {
+            transform: scale(1.05, 2.4);
+            background-color: #6fd1bd;
+            transition-delay: 0s;
+            transition-duration: .2s
+        }
+
+        @media print {
+            html {
+                font-size: 50%
+            }
+
+            .l-Wrapper {
+                width: 100%;
+                max-width: none
+            }
+
+            .Navbar,
+            .u-hidden\@print {
+                display: none
+            }
+
+            .l-Header,
+            .l-Header-col {
+                margin-top: 0
+            }
+
+            .l-Footer,
+            .l-Section {
+                margin-top: 3.2rem
+            }
+
+            h3,
+            .h3,
+            .l-Section-title,
+            .l-Section-content {
+                margin-top: 1.8rem
+            }
+
+            .Title {
+                font-size: 4.5rem
+            }
+
+            .l-Header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end
+            }
+
+            .l-Header-col:last-child:not(:first-child) {
+                text-align: right
+            }
+
+            .l-Section {
+                position: relative;
+                padding-top: 5px;
+                border-top: 1px solid #ddd
+            }
+
+            .l-Section:before {
+                display: none
+            }
+
+            .l-Section:after {
+                content: "";
+                position: absolute;
+                top: -1px;
+                left: 0;
+                border-top: 5px solid;
+                width: 4rem
+            }
+
+            .l-Section-group {
+                display: block;
+                /* page-break-inside: avoid */
+            }
+
+            .Tag {
+                font-weight: 900;
+                display: inline;
+                padding-left: 0;
+                padding-right: 0
+            }
+
+            *,
+            *:before,
+            *:after,
+            p:first-letter,
+            div:first-letter,
+            blockquote:first-letter,
+            li:first-letter,
+            p:first-line,
+            div:first-line,
+            blockquote:first-line,
+            li:first-line {
+                background: transparent !important;
+                color: #000 !important;
+                box-shadow: none !important;
+                text-shadow: none !important
+            }
+
+            a,
+            a:visited {
+                text-decoration: underline
+            }
+
+            p,
+            h2,
+            h3,
+            li {
+                orphans: 3;
+                widows: 3
+            }
+
+            h2,
+            h3 {
+                page-break-after: avoid
+            }
+
+            .Contact:after {
+                content: "(206) 960-0961";
+                padding-left: 1.6rem
+            }
+        }
+
+        @page {
+            margin: 2.2cm 2.2cm 1.8cm
+        }
+    </style>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1112.0" data-gr-ext-installed="">
+    <nav class="Navbar">
+        <div class="l-Wrapper l-Wrapper--reset@sm-down">
+            <ul>
+                <li>
+                    <a href="https://www.linkedin.com/in/hayden-akers/">LinkedIn</a>
+                </li>
+                <li>
+                    <a href="https://github.com/H-Akers">GitHub</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <article class="l-Wrapper">
+
+        <div class="l-Header">
+            <div class="l-Header-col">
+                <a href="https://haydenakers.com/">
+                    <h1 class="Title">
+                        <span class="u-shadow">
+                            Hayden
+                            <br> Akers
+                        </span>
+                        <span class="Title-sub">Project Manager</span>
+                    </h1>
+                </a>
+            </div>
+            <div class="l-Header-col Contact">
+                <div>Pasadena, CA</div>
+                <div>
+                    <a class="u-link" href="https://haydenakers.com/">https://haydenakers.com/</a>
+                </div>
+                <div>
+                    <a class="u-link" href="mailto:Hayden.M.Akers@outlook.com">Hayden.M.Akers@outlook.com</a>
+                </div>
+            </div>
+        </div>
+
+        <section class="l-Section">
+            <h2 class="l-Section-title h3 u-hidden@sm-down">Profile</h2>
+            <div class="l-Section-content">
+                <p>Technical Project Manager with 7+ years of experience in effectively defining and executing complex projects 
+                    with $1,000,000 budgets. Self-starter capable of accurately directing multi-faceted project teams, meeting deliverables, 
+                    and effectively communicating through and resolving escalations. Detail oriented mentor who naturally leads interdisciplinary 
+                    teams in exceeding the expectations of all stakeholders. </p>
+            </div>
+        </section>
+
+        <section class="l-Section">
+            <h2 class="l-Section-title h3">Skills</h2>
+            <div class="l-Section-content">
+                <ul>
+                    <li>Highly skilled in project management methodologies including:
+                        <strong class="Tag">Team Leadership</strong>,
+                        <strong class="Tag">Budget Management</strong> and
+                        <strong class="Tag">Microsoft Project</strong>
+                    </li>
+                    <li>Experienced with AWS
+                        <strong class="Tag">Permissions</strong>(SSO, Organizations, IAM),
+                        <strong class="Tag">Security</strong> (Route 53, DNSSEC)
+                    </li>
+                    <li>Knowledgeable with
+                        <strong class="Tag">Python</strong> (Pandas, NumPy, Algorithms, Folium, Data Structures),
+                        <strong class="Tag">Java</strong> (Object Oriented Programming, Classes),
+                        <strong class="Tag">JavaScript</strong> (Web Applications) and
+                        <strong class="Tag">Responsive Web Design</strong> (HTML, CSS)
+                        
+                    </li>
+                    <li>Proficient with
+                        <strong class="Tag">Infrastructure as Code</strong> (Vagrant, AWS ElasticBeanStalk),
+                        <strong class="Tag">Package Managers</strong> (NPM, yum, pip) and
+                        <strong class="Tag">Version Control Systems</strong> (Git)
+                    </li>
+                    <li>Skilled in
+                        <strong class="Tag">Communications</strong>,
+                        <strong class="Tag">Client Services</strong>,
+                        <strong class="Tag">Root Cause Analysis</strong>,
+                        <strong class="Tag">Microsoft Office</strong>,
+                        <strong class="Tag">Critical Thinking & Problem Solving</strong> and
+                        <strong class="Tag">Adaptability & Continuous Learning</strong>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="l-Section">
+            <h2 class="l-Section-title h3">Professional Experience</h2>
+            <div class="l-Section-content">
+                <div class="l-Section-group">
+                    <h3>Project Manager</h3>
+                    <a class="u-link" href="https://www.nice.com/">NICE Systems</a> | Pasadena, CA (Remote)
+                    <br> 2021 - Present
+                    <ul>
+                        <li>Manage the deployment, customization, and maintenance of an interaction analytics software suite by 
+                            leading cross-functional teams in coordinating engineering, solution architecture, and infrastructure 
+                            setup to meet project deadlines.</li>
+                        <li>Direct $1,000,000+ cloud and on-premise projects from initiation to closing by deploying 
+                            hardware and software as detailed in the project’s Master Service Agreement to meet and exceed 
+                            quarterly revenue goals.</li>
+                        <li>Synchronize the project timelines and work schedules of 7 different teams to deliver 
+                            value-driven initiatives derived from executive stakeholder's return-on-investment requirements.</li>
+                        <li>Collaborated with product management to deploy the first production instance of a new software 
+                            providing real-time guidance to clients with a sub-4 millisecond delay, enhancing client experience.</li>
+                        <li>Expanded production, lab, and disaster recovery environments, adding hundreds of user agents 
+                            and rolling out software for quality control auditing, AI-driven analytics, and real-time guidance.</li>
+                    </ul>
+                </div>
+
+                <div class="l-Section-group">
+                    <h3>Project Manager</h3>
+                    <a class="u-link" href="https://www.alsglobal.com/">ALS Global - North America</a> | Simi Valley, CA
+                    <br> 2019 - 2021
+                    <ul>
+                        <li>Coordinated with a project management team for 30 international client accounts comprised of ~100 
+                            sites and subsidiaries, providing technical project management and support.</li>
+                        <li>Executed thousands of small projects with a monthly value of $400 – $700K, continuously achieving 
+                            a 5% monthly growth goal.</li>
+                        <li>Fostered strong partnerships with national and international organizations, driving a 95% 
+                            on-time project completion rate for 12 consecutive months.</li>
+                        <li>Generated three additional sites from one client for a program worth $1.2 million of the company’s 
+                            annual revenue through strategic problem-solving and project execution.</li>
+                        <li>Co-Headed the Lawrence Livermore National Laboratory’s research and development proposal of 
+                            $200K+ for the Department of Energy, National Nuclear Security Administration, DoE/NNSA.</li>
+                    </ul>
+                </div>
+
+                <div class="l-Section-group">
+                    <h3>Laboratory Technician</h3>
+                    <a class="u-link" href="https://www.alsglobal.com/">ALS Global - North America</a> | Simi Valley, CA
+                    <br> 2018 - 2019
+                    <ul>
+                        <li>
+                            Organized daily media preparation by performing inventory forecasting and demand for supplies and equipment. 
+                            Planned daily and weekly materials according to project specifications. Synchronized a 3-member team.
+                        </li>
+                        <li>
+                            Ensured 4K assets worth ~$6M aligned with Standard Operating Procedures (SOPs) by collaborating with five 
+                            quality assurance analysts. 
+                        </li>
+                        <li>Mentored a 3-member team in charge of quality control, shipping, and maintenance and ensured orders were 
+                            fulfilled on time and accurately. </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="l-Section">
+            <h2 class="l-Section-title h3">Additional<br> Experience</h2>
+            <div class="l-Section-content">
+                <div class="l-Section-group">
+                    <h3>Director of the Board of Campus Activities </h3>
+                    <a class="u-link" href="https://prescott.erau.edu/">Embry-Riddle Aeronautical University</a> | Prescott, AZ 
+                    <br> 2016 - 2017
+                    <ul>
+                        <li>Led five paid students and 15 volunteers for a campus entertainment program that contracted with talent 
+                            agencies to provide on and off-campus activities. Managed an annual budget of $40K for 30 events a year, 
+                            including Homecoming events.</li>  
+                    </ul>
+                </div>
+
+                <div class="l-Section-group">
+                    <h3>Assistant Director of the Board of Campus Activities </h3>
+                    <a class="u-link" href="https://prescott.erau.edu/">Embry-Riddle Aeronautical University</a> | Prescott, AZ 
+                    <br> 2015 - 2016
+                    <ul>
+                        <li>Managed all processes for Homecoming week; handled a budget of $15-10K and an 8-member team. 
+                            Organized a fair comprised of ~2K attendees, building advertisements, and marketing events throughout the week.</li>  
+                    </ul>
+                </div>
+
+                <div class="l-Section-group">
+                    <h3>Relations Coordinator</h3>
+                    <a class="u-link" href="https://abilityexperience.org/">The Ability Experience</a> | Charlotte, NC 
+                    <br> 2016
+                    <ul>
+                        <li>Led a 30-member team and organized 10 events to raise $200K in funding for a cross-country cycling trip covering 
+                            3K miles. Coordinated with 100 volunteers to meet the participation expectations of team members.</li>  
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="l-Section">
+            <h2 class="l-Section-title h3">Education & Certifications</h2>
+            <div class="l-Section-content">
+                <div class="l-Section-group">
+                    <h3>Bachelor of Science in Unmanned Aircraft Systems</h3>
+                    <a class="u-link" href="https://prescott.erau.edu/">Embry-Riddle Aeronautical University</a> | Prescott, AZ | 2013 - 2017
+                    <br><i>Dual Minors in Business Administration and Aeronautics</i>
+                </div>
+                <div class="l-Section-group">
+                    <h3>AWS Certified Cloud Practitioner</h3>
+                    <a class="u-link" href="https://www.credly.com/badges/b36a49c2-0114-47a3-9e7b-6c7fa721972c/public_url">Amazon Web Services </a> | 2023
+                </div>
+                <div class="l-Section-group">
+                    <h3>Introduction to Programming with Python and Java Specialization</h3>
+                    <a class="u-link" href="https://coursera.org/share/d70daeed67a0c639dca68c78a8f56f96">University of Pennsylvania (Online) </a> | 2023
+                </div>
+                <div class="l-Section-group">
+                    <h3>Computational Thinking for Problem Solving 	</h3>
+                    <a class="u-link" href="
+                    https://www.coursera.org/account/accomplishments/certificate/9JYTFPYYF5DH">University of Pennsylvania (Online) </a> | 2023
+                </div>
+                <div class="l-Section-group">
+                    <h3>Responsive Web Design</h3>
+                    <a class="u-link" href="https://www.freecodecamp.org/certification/H-Akers/responsive-web-design">freeCodeCamp</a> | 2023
+                </div>
+            </div>
+        </section>   
+
+    </article>
+
+    <div class="l-Wrapper u-keyline">
+        <div class="l-Footer">
+            <div class="l-Footer-col">
+                <strong class="Tag">H. Akers</strong>
+            </div>
+            <div class="l-Footer-col Contact">
+                <a href="https://haydenakers.com/">haydenakers.com</a>
+                <a href="mailto:Hayden.M.Akers@outlook.com">Hayden.M.Akers@outlook.com</a>
+            </div>
+        </div>
+    </div>
+    <p>Visitors:
+        <span id="replaceme"></span>
+    </p>
+    </script>
+    <script src="./Hayden Akers - Resume_files/analytics.js.download" async="" defer=""></script>
+
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+  div.grammarly-desktop-integration {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select:none;
+    user-select:none;
+  }
+
+  div.grammarly-desktop-integration:before {
+    content: attr(data-content);
+  }
+</style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
